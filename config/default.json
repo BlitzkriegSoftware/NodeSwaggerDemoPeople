@@ -5,5 +5,11 @@
   "paginate": {
     "default": 10,
     "max": 50
+  },
+  "sqlite": {
+    "client": "sqlite3",
+    "connection": {
+      "filename": "/People.db3"
+    }
   }
 }
