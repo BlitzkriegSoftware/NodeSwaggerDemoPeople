@@ -1,1 +1,0 @@
-# SQLite Data Folder
