@@ -1,6 +1,6 @@
 {
   "name": "nodejs-people-api",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Demo of Swagger 1st NodeJS API",
   "main": "index.js",
   "scripts": {

@@ -1,32 +1,32 @@
 swagger: "2.0"
 info:
   description: "Demo of Swagger 1st NodeJS API"
-  version: "1.0.0"
+  version: "1.0.2"
   title: "NodeJS People API"
   termsOfService: ""
   contact:
-    email: "stuartw@magenic.com"
+    email: "stuart.t.williams@outlook.com"
   license:
     name: "MIT"
     url: "https://opensource.org/licenses/MIT"
 basePath: "/v1"
 tags:
 - name: "People Node JS Demo"
-  description: "People API"
+  description: "A demo of a swagger 1st way to deliver nodejs APIs"
   externalDocs:
     description: "Find out more"
     url: "https://github.com/BlitzkriegSoftware/NodeSwaggerDemoPeople"
 - name: "Person"
-  description: "People Demo "
+  description: "People Demo"
 schemes:
 - "http"
 paths:
   /people:
     get:
       tags:
-      - "people, list"
-      summary: "Get people list"
-      description: ""
+      - "PeopleList"
+      summary: "Get a list of people"
+      description: "Gets a list of people"
       operationId: "PeopleList_peopleGet"
       consumes:
       - "application/json"
@@ -40,9 +40,9 @@ paths:
   /people/{peopleId}:
     get:
       tags:
-      - "people, id"
-      summary: "Find people by ID"
-      description: "Returns a single people"
+      - "PersonGetById"
+      summary: "Get person by ID"
+      description: "Returns a single person"
       operationId: "PeopleId_getPersonById"
       produces:
       - "application/json"
@@ -63,6 +63,7 @@ paths:
           description: "Person not found"
 definitions:
   people:
+    description: List of people
     type: array
     items:
       $ref: "#/definitions/person"
@@ -72,46 +73,60 @@ definitions:
     - _id
     properties:
       _id:
+        description: PK of a Person (unique)
         type: string
       NameLast:
+        description: Last Name
         type: string
       NameFirst:
+        description: First Name
         type: string
       EMail:
+        description: e-mail        
         type: string
       Company:
+        description: Company (optional)
         type: string
       MemberSince:
+        description: Member Since      
         type: string
+        format: date-time
       Birthday:
+        description: Date of Birthday
         type: string
+        format: date-time
       Addresses:
+        description: List of Addresses      
         type: array
         items:
           "$ref": "#/definitions/address"
       Preference:
+        description: hashtable/dictionary of settings
         type: array
         items:
-          "$ref": "#/definitions/preference"
+          "$ref": "#/definitions/setting"
   address:
     type: object
     properties:
       Address1:
+        description: primary street address
         type: string
       Address2:
+        description: appartment number, floor number, etc.
         type: string
       City:
+        description: City
         type: string
       State:
+        description: State or Provence
         type: string
       Zip:
+        description: Zip/Postal Code      
         type: string
       Kind:
+        description: Kind of address-> business, shipping, billing, etc.
         type: string
-  preference:
-    type: object
-    properties:
-      name:
-        type: object
+  setting:
+    description: Setting
     additionalProperties:
       type: string
