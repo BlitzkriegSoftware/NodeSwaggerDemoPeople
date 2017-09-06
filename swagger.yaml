@@ -1,0 +1,124 @@
+swagger: "2.0"
+info:
+  description: "Demo of Swagger 1st NodeJS API"
+  version: "1.0.0.0"
+  title: "NodeJS People API"
+  termsOfService: ""
+  contact:
+    email: "stuartw@magenic.com"
+  license:
+    name: "MIT"
+    url: "https://opensource.org/licenses/MIT"
+host: "localhost"
+basePath: "/v1"
+tags:
+- name: "People Node JS Demo"
+  description: "People API"
+  externalDocs:
+    description: "Find out more"
+    url: "https://github.com/BlitzkriegSoftware/NodeSwaggerDemoPeople"
+- name: "Person"
+  description: "People Demo "
+schemes:
+- "http"
+paths:
+  /people:
+    get:
+      tags:
+      - "people, list"
+      summary: "Get people list"
+      description: ""
+      operationId: "PeopleGet"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+            200:
+              description: "successful operation"
+              schema:
+                $ref: "#/definitions/person"
+  /people/{peopleId}:
+    get:
+      tags:
+      - "people, id"
+      summary: "Find people by ID"
+      description: "Returns a single people"
+      operationId: "getPersonById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "peopleId"
+        in: "path"
+        description: "ID of person to return"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/person"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Person not found"
+definitions:
+  person:
+    type: object
+    required:
+    - _id
+    properties:
+      _id:
+        type: string
+      NameLast:
+        type: string
+      NameFirst:
+        type: string
+      EMail:
+        type: string
+      Company:
+        type: string
+      MemberSince:
+        type: string
+      Birthday:
+        type: string
+      Addresses:
+        type: array
+        items:
+          "$ref": "#/definitions/address"
+      Preference:
+        type: array
+        items:
+          "$ref": "#/definitions/preference"
+  address:
+    type: object
+    properties:
+      Address1:
+        type: string
+      Address2:
+        type: string
+      City:
+        type: string
+      State:
+        type: string
+      Zip:
+        type: string
+      Kind:
+        type: string
+  preference:
+    type: object
+    properties:
+      name:
+        type: object
+    additionalProperties:
+      type: string
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      type:
+        type: "string"
+      message:
+        type: "string"
