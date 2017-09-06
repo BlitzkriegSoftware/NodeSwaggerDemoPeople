@@ -6,6 +6,13 @@
 
 This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
 
+## Tools
+
+* Express API Generator
+    https://www.npmjs.com/package/express-generator-api 
+* Swagger
+    https://www.npmjs.com/package/swagger-node-express
+
 ## Getting Started
 
 Getting up and running is as easy as 1, 2, 3.
@@ -25,33 +32,16 @@ Getting up and running is as easy as 1, 2, 3.
 
 ## Testing
 
-Simply run `npm test` and all your tests in the `test/` directory will be run.
-
-## Scaffolding
-
-Feathers has a powerful command line interface. Here are a few things it can do:
-
-```
-$ npm install -g feathers-cli             # Install Feathers CLI
-
-$ feathers generate service               # Generate a new Service
-$ feathers generate hook                  # Generate a new Hook
-$ feathers generate model                 # Generate a new Model
-$ feathers help                           # Show all commands
-```
-
-## Help
-
-For more information on all the things you can do with Feathers visit [docs.feathersjs.com](http://docs.feathersjs.com).
+Use your favorite tool like Postman or Fiddler2
 
 ## Changelog
 
-__0.1.0__
-
+- Feathers version (reverted)
+- Express API Generator + Swagger
 - Initial release
 
 ## License
 
-Copyright (c) 2016
+Copyright (c) 2017
 
 Licensed under the [MIT license](LICENSE).
