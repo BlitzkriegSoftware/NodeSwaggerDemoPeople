@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   description: "Demo of Swagger 1st NodeJS API"
-  version: "1.0.0.0"
+  version: "1.0.0"
   title: "NodeJS People API"
   termsOfService: ""
   contact:
@@ -9,7 +9,6 @@ info:
   license:
     name: "MIT"
     url: "https://opensource.org/licenses/MIT"
-host: "localhost"
 basePath: "/v1"
 tags:
 - name: "People Node JS Demo"
@@ -28,7 +27,7 @@ paths:
       - "people, list"
       summary: "Get people list"
       description: ""
-      operationId: "PeopleGet"
+      operationId: "PeopleList_peopleGet"
       consumes:
       - "application/json"
       produces:
@@ -37,14 +36,14 @@ paths:
             200:
               description: "successful operation"
               schema:
-                $ref: "#/definitions/person"
+                $ref: "#/definitions/people"
   /people/{peopleId}:
     get:
       tags:
       - "people, id"
       summary: "Find people by ID"
       description: "Returns a single people"
-      operationId: "getPersonById"
+      operationId: "PeopleId_getPersonById"
       produces:
       - "application/json"
       parameters:
@@ -63,6 +62,10 @@ paths:
         404:
           description: "Person not found"
 definitions:
+  people:
+    type: array
+    items:
+      $ref: "#/definitions/person"
   person:
     type: object
     required:
@@ -112,13 +115,3 @@ definitions:
         type: object
     additionalProperties:
       type: string
-  ApiResponse:
-    type: "object"
-    properties:
-      code:
-        type: "integer"
-        format: "int32"
-      type:
-        type: "string"
-      message:
-        type: "string"
